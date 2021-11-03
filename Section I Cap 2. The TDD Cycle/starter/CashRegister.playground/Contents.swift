@@ -29,15 +29,28 @@
 import Foundation
 import XCTest
 
-class cashRegister {
+class CashRegister {
+    var availableFunds: Decimal
     
+    init(availableFunds: Decimal){
+        self.availableFunds = availableFunds
+    }
 }
 
-class CashRegisterTest: XCTestCase {
+class CashRegisterTest: XCTestCase { //Esta prueba queda obsoleta porque ya no esta el init vacio, ahora el init espera un availableFunds
     
-    func testInit_createscashRegister(){
-        
-        XCTAssertNil(cashRegister())
+  //  func testInit_createscashRegister(){
+      
+    //    XCTAssertNil(CashRegister())
+    //}
+    
+    func testInitAvailableFunds_setsAvailableFunds(){
+        //given
+        let availableFunds = Decimal(100)
+        //when
+        let sut = CashRegister(availableFunds: availableFunds)
+        //Then
+        XCTAssertEqual(sut.availableFunds, availableFunds)
     }
     
 }
