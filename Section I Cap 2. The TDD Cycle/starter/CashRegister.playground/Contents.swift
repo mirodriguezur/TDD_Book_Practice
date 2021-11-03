@@ -29,3 +29,17 @@
 import Foundation
 import XCTest
 
+class cashRegister {
+    
+}
+
+class CashRegisterTest: XCTestCase {
+    
+    func testInit_createscashRegister(){
+        
+        XCTAssertNil(cashRegister())
+    }
+    
+}
+
+CashRegisterTest.defaultTestSuite.run()
