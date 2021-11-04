@@ -14,6 +14,7 @@
 		0A9EB50B21C072F00062B66E /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9EB50A21C072F00062B66E /* AppModel.swift */; };
 		0AA5E735219B9B4600B7A0D0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5E734219B9B4600B7A0D0 /* AppState.swift */; };
 		4C1AD91F27342E4C008CCBBF /* AppModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1AD91E27342E4C008CCBBF /* AppModelTest.swift */; };
+		4C1AD92327343E67008CCBBF /* StepCountControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1AD92227343E67008CCBBF /* StepCountControllerTest.swift */; };
 		5C2901831F8F6DE700803663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 		4C1AD90727337685008CCBBF /* FitNessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitNessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1AD90B27337685008CCBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1AD91E27342E4C008CCBBF /* AppModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTest.swift; sourceTree = "<group>"; };
+		4C1AD92227343E67008CCBBF /* StepCountControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountControllerTest.swift; sourceTree = "<group>"; };
 		5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* FitNess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitNess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,10 +105,27 @@
 		4C1AD90827337685008CCBBF /* FitNessTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C1AD92627343F78008CCBBF /* App Model */,
+				4C1AD92727343F81008CCBBF /* UI Layer */,
 				4C1AD90B27337685008CCBBF /* Info.plist */,
-				4C1AD91E27342E4C008CCBBF /* AppModelTest.swift */,
 			);
 			path = FitNessTests;
+			sourceTree = "<group>";
+		};
+		4C1AD92627343F78008CCBBF /* App Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C1AD91E27342E4C008CCBBF /* AppModelTest.swift */,
+			);
+			path = "App Model";
+			sourceTree = "<group>";
+		};
+		4C1AD92727343F81008CCBBF /* UI Layer */ = {
+			isa = PBXGroup;
+			children = (
+				4C1AD92227343E67008CCBBF /* StepCountControllerTest.swift */,
+			);
+			path = "UI Layer";
 			sourceTree = "<group>";
 		};
 		D2A5F1F71F4A9143005CD714 = {
@@ -247,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1AD91F27342E4C008CCBBF /* AppModelTest.swift in Sources */,
+				4C1AD92327343E67008CCBBF /* StepCountControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
