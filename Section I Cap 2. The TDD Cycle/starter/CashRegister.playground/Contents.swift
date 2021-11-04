@@ -40,6 +40,11 @@ class CashRegister {
     func addItem(_ cost: Decimal){
         transactionTotal += cost
     }
+    
+    func acceptCashPayment(_ cash: Decimal){
+        transactionTotal -= cash
+        availableFunds += cash
+    }
 }
 
 class CashRegisterTest: XCTestCase { //Esta prueba queda obsoleta porque ya no esta el init vacio, ahora el init espera un availableFunds
@@ -91,6 +96,17 @@ class CashRegisterTest: XCTestCase { //Esta prueba queda obsoleta porque ya no e
       
       // then
       XCTAssertEqual(sut.transactionTotal, expectedTotal)
+    }
+    
+    func testAcceptCashPayment_subtractsPaymentFromTransactionTotal() {
+        //given
+        let payment = Decimal(40)
+        sut.addItem(50)
+        let expected = sut.transactionTotal - payment
+        //when
+        sut.acceptCashPayment(payment)
+        //then
+        XCTAssertEqual(sut.transactionTotal, expected)
     }
 
     
