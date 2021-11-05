@@ -15,6 +15,9 @@
 		0AA5E735219B9B4600B7A0D0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5E734219B9B4600B7A0D0 /* AppState.swift */; };
 		4C1AD91F27342E4C008CCBBF /* AppModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1AD91E27342E4C008CCBBF /* AppModelTest.swift */; };
 		4C1AD92327343E67008CCBBF /* StepCountControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1AD92227343E67008CCBBF /* StepCountControllerTest.swift */; };
+		4C59F10A2735BCB100D833F1 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C59F1092735BCB100D833F1 /* DataModel.swift */; };
+		4C59F1102735BCC600D833F1 /* Nessie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C59F10F2735BCC600D833F1 /* Nessie.swift */; };
+		4C59F1172735BD3B00D833F1 /* DataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C59F1162735BD3B00D833F1 /* DataModelTests.swift */; };
 		5C2901831F8F6DE700803663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
@@ -41,6 +44,9 @@
 		4C1AD90B27337685008CCBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1AD91E27342E4C008CCBBF /* AppModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTest.swift; sourceTree = "<group>"; };
 		4C1AD92227343E67008CCBBF /* StepCountControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountControllerTest.swift; sourceTree = "<group>"; };
+		4C59F1092735BCB100D833F1 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		4C59F10F2735BCC600D833F1 /* Nessie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nessie.swift; sourceTree = "<group>"; };
+		4C59F1162735BD3B00D833F1 /* DataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelTests.swift; sourceTree = "<group>"; };
 		5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* FitNess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitNess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 		4C1AD90827337685008CCBBF /* FitNessTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C59F1152735BD0A00D833F1 /* Data Model */,
 				4C1AD92627343F78008CCBBF /* App Model */,
 				4C1AD92727343F81008CCBBF /* UI Layer */,
 				4C1AD90B27337685008CCBBF /* Info.plist */,
@@ -126,6 +133,23 @@
 				4C1AD92227343E67008CCBBF /* StepCountControllerTest.swift */,
 			);
 			path = "UI Layer";
+			sourceTree = "<group>";
+		};
+		4C59F1082735BC9500D833F1 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C59F1092735BCB100D833F1 /* DataModel.swift */,
+				4C59F10F2735BCC600D833F1 /* Nessie.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		4C59F1152735BD0A00D833F1 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C59F1162735BD3B00D833F1 /* DataModelTests.swift */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 		D2A5F1F71F4A9143005CD714 = {
@@ -152,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */,
+				4C59F1082735BC9500D833F1 /* Data Model */,
 				0A311FFC219102ED00AE4720 /* App Layer */,
 				0A9EB50C21C072F50062B66E /* App Model */,
 				0AA5E730219B997D00B7A0D0 /* UI Layer */,
@@ -265,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C59F1172735BD3B00D833F1 /* DataModelTests.swift in Sources */,
 				4C1AD91F27342E4C008CCBBF /* AppModelTest.swift in Sources */,
 				4C1AD92327343E67008CCBBF /* StepCountControllerTest.swift in Sources */,
 			);
@@ -274,11 +300,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C59F10A2735BCB100D833F1 /* DataModel.swift in Sources */,
 				0A1BDA14218E542100804262 /* RootViewController.swift in Sources */,
 				0A1BDA15218E542100804262 /* StepCountController.swift in Sources */,
 				0AA5E735219B9B4600B7A0D0 /* AppState.swift in Sources */,
 				D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */,
 				0A1BDA19218E542100804262 /* ChaseView.swift in Sources */,
+				4C59F1102735BCC600D833F1 /* Nessie.swift in Sources */,
 				0A9EB50B21C072F00062B66E /* AppModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
