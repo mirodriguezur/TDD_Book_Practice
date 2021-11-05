@@ -9,6 +9,16 @@
 import Foundation
 
 class DataModel {
-  var goalReached: Bool { return false }
+  var goal: Int?
+  var steps: Int = 0
+  var goalReached: Bool {         //Si el usuario logra mas que el objetivo, true
+    if let goal = goal,
+      steps >= goal {
+        return true
+    }
+    return false
+  }
+
+
   
 }
