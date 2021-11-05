@@ -33,8 +33,14 @@ class AppModel {
   static let instance = AppModel()
 
   private(set) var appState: AppState = .notStarted
+  let dataModel = DataModel()
 
-  func start() {
+  func start() throws {
+    
+    guard dataModel.goal != nil else {
+      throw AppError.goalNotSet
+    }
+
     appState = .inProgress
   }
 }
