@@ -34,11 +34,9 @@ class StepCountControllerTest: XCTestCase {
   }
 
   // MARK: - In Progress
-
   
   func testController_whenStartTapped_appIsInProgress() {
-    // when
-    sut.startStopPause(nil)
+    whenStartStopPauseCalled()
 
     // then
     let state = AppModel.instance.appState         //Debo creear una instancia
@@ -47,12 +45,17 @@ class StepCountControllerTest: XCTestCase {
   
   func testController_whenStartTapped_buttonLabelIsPause() {
     // when
-    sut.startStopPause(nil)
+    whenStartStopPauseCalled()
 
     // then
     let text = sut.startButton.title(for: .normal)
     XCTAssertEqual(text, AppState.inProgress.nextStateButtonLabel) //Fuerzo condicion inProgress para comparar con text.
   }
 
-
+// Helpers
+  
+  fileprivate func whenStartStopPauseCalled() {
+    // when
+    sut.startStopPause(nil)
+  }
 }
