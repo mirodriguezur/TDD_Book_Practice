@@ -34,7 +34,7 @@ internal class AppModel {
 
   public init() {}
   
-  public func start (){
+  public func start() throws {
     appState = .inProgress
   }
 }

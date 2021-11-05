@@ -23,6 +23,11 @@ class DataModelTests: XCTestCase {
       super.tearDown()
     }
   
+  // MARK: - Goal
+  func testModel_whenStarted_goalIsNotReached() {
+    XCTAssertFalse(sut.goalReached,
+        "goalReached should be false when the model is created")
+  }
   func testModel_whenStepsReachGoal_goalIsReached() {
     // given
     sut.goal = 1000
@@ -32,13 +37,6 @@ class DataModelTests: XCTestCase {
 
     // then
     XCTAssertTrue(sut.goalReached)
-  }
-
-
-  // MARK: - Goal
-  func testModel_whenStarted_goalIsNotReached() {
-    XCTAssertFalse(sut.goalReached,
-        "goalReached should be false when the model is created")
   }
 
 }

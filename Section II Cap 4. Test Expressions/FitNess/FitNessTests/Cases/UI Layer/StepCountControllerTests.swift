@@ -26,60 +26,63 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
-import UIKit
+import XCTest
+@testable import FitNess
 
-extension AppState {
-  var nextStateButtonLabel: String {
-    switch self {
-    case .notStarted:
-      return "Start"
-    case .inProgress:
-      return "Pause"
-    case .paused:
-      return "Resume"
-    case .caught:
-      return "Try Again"
-    case .completed:
-      return "Start Over"
-    }
-  }
-}
+class StepCountControllerTests: XCTestCase {
 
-class StepCountController: UIViewController {
+  var sut: StepCountController!
 
-  @IBOutlet weak var stepCountLabel: UILabel!
-  @IBOutlet var startButton: UIButton!
-  @IBOutlet weak var chaseView: ChaseView!
+  // MARK: - Test Lifecycle
 
-  init() {
-    // this is a cheat to simplify chapter 3, a proper way of getting an instance will be handled in chapter 4
-    super.init(nibName: nil, bundle: nil)
-    startButton = UIButton()
+  override func setUp() {
+    super.setUp()
+    sut = StepCountController()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+  override func tearDown() {
+    sut = nil
+    super.tearDown()
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    updateButton()     //Refactorizacion con funcion
-  }
-
-  @IBAction func startStopPause(_ sender: Any?) {
-    do {
-       try AppModel.instance.start()
-     } catch {
-       showNeedGoalAlert()
-     }
-
-     updateUI()
-  }
+  // MARK: - Given
   
-  private func updateButton() {
-    let title = AppModel.instance.appState.nextStateButtonLabel
-    startButton.setTitle(title, for: .normal)
+  // MARK: - When
+
+  fileprivate func whenStartStopPauseCalled() {
+    sut.startStopPause(nil)
   }
 
+  // MARK: - Initial State
+
+  func testController_whenCreated_buttonLabelIsStart() {
+    // given
+    sut.viewDidLoad()
+
+    let text = sut.startButton.title(for: .normal)
+    XCTAssertEqual(text, AppState.notStarted.nextStateButtonLabel)
+  }
+
+  // MARK: - Goal
+
+
+  // MARK: - In Progress
+
+  func testController_whenStartTapped_appIsInProgress() {
+    whenStartStopPauseCalled()
+
+    // then
+    let state = AppModel.instance.appState
+    XCTAssertEqual(state, AppState.inProgress)
+  }
+
+  func testController_whenStartTapped_buttonLabelIsPause() {
+    whenStartStopPauseCalled()
+
+    // then
+    let text = sut.startButton.title(for: .normal)
+    XCTAssertEqual(text, AppState.inProgress.nextStateButtonLabel)
+  }
+
+  // MARK: - Chase View
 }

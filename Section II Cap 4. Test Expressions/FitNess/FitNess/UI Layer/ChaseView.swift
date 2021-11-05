@@ -26,60 +26,76 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
 import UIKit
 
-extension AppState {
-  var nextStateButtonLabel: String {
-    switch self {
-    case .notStarted:
-      return "Start"
-    case .inProgress:
-      return "Pause"
-    case .paused:
-      return "Resume"
-    case .caught:
-      return "Try Again"
-    case .completed:
-      return "Start Over"
+@IBDesignable class ChaseView: UIView {
+
+  let nessieView = UIImageView()
+  let runnerView = UIImageView()
+
+  var state: AppState = .notStarted {
+    didSet {
+      nessieView.image = state.nessieImage
+      runnerView.image = state.runnerImage
     }
   }
-}
 
-class StepCountController: UIViewController {
-
-  @IBOutlet weak var stepCountLabel: UILabel!
-  @IBOutlet var startButton: UIButton!
-  @IBOutlet weak var chaseView: ChaseView!
-
-  init() {
-    // this is a cheat to simplify chapter 3, a proper way of getting an instance will be handled in chapter 4
-    super.init(nibName: nil, bundle: nil)
-    startButton = UIButton()
+  private func commonSetup() {
+    addSubview(nessieView)
+    addSubview(runnerView)
   }
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    commonSetup()
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    updateButton()     //Refactorizacion con funcion
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    commonSetup()
   }
 
-  @IBAction func startStopPause(_ sender: Any?) {
-    do {
-       try AppModel.instance.start()
-     } catch {
-       showNeedGoalAlert()
-     }
+  override func prepareForInterfaceBuilder() {
+    super.prepareForInterfaceBuilder()
 
-     updateUI()
+    let bundle = Bundle(for: ChaseView.self)
+    nessieView.image = UIImage(named: "Nessie", in: bundle, compatibleWith: nil)
+    runnerView.image = UIImage(named: "Runner", in: bundle, compatibleWith: nil)
   }
-  
-  private func updateButton() {
-    let title = AppModel.instance.appState.nextStateButtonLabel
-    startButton.setTitle(title, for: .normal)
+}
+
+extension AppState {
+  var nessieImage: UIImage {
+    let imageName: String
+    switch self {
+    case .notStarted:
+      imageName = "NessieSleeping"
+    case .inProgress:
+      imageName = "Nessie"
+    case .paused:
+      imageName = "NessieSleeping"
+    case .completed:
+      imageName = "NessieLost"
+    case .caught:
+      imageName = "NessieWon"
+    }
+    return UIImage(named: imageName)!
   }
 
+  var runnerImage: UIImage {
+    let imageName: String
+    switch self {
+    case .notStarted:
+      imageName = "RunnerPaused"
+    case .inProgress:
+      imageName = "Runner"
+    case .paused:
+      imageName = "RunnerPaused"
+    case .completed:
+      imageName = "RunnerWon"
+    case .caught:
+      imageName = "RunnerEaten"
+    }
+    return UIImage(named: imageName)!
+  }
 }

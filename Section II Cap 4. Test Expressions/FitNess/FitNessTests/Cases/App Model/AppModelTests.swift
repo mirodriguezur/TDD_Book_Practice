@@ -26,60 +26,40 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
-import UIKit
+import XCTest
+@testable import FitNess
 
-extension AppState {
-  var nextStateButtonLabel: String {
-    switch self {
-    case .notStarted:
-      return "Start"
-    case .inProgress:
-      return "Pause"
-    case .paused:
-      return "Resume"
-    case .caught:
-      return "Try Again"
-    case .completed:
-      return "Start Over"
-    }
-  }
-}
+class AppModelTests: XCTestCase {
 
-class StepCountController: UIViewController {
+  var sut: AppModel!
 
-  @IBOutlet weak var stepCountLabel: UILabel!
-  @IBOutlet var startButton: UIButton!
-  @IBOutlet weak var chaseView: ChaseView!
-
-  init() {
-    // this is a cheat to simplify chapter 3, a proper way of getting an instance will be handled in chapter 4
-    super.init(nibName: nil, bundle: nil)
-    startButton = UIButton()
+  override func setUp() {
+    super.setUp()
+    sut = AppModel()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+  override func tearDown() {
+    sut = nil
+    super.tearDown()
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    updateButton()     //Refactorizacion con funcion
+  // MARK: - Given
+
+  // MARK: - Lifecycle
+
+  func testAppModel_whenInitialized_isInNotStartedState() {
+    let initialState = sut.appState
+    XCTAssertEqual(initialState, AppState.notStarted)
   }
 
-  @IBAction func startStopPause(_ sender: Any?) {
-    do {
-       try AppModel.instance.start()
-     } catch {
-       showNeedGoalAlert()
-     }
-
-     updateUI()
-  }
+  // MARK: - Start
   
-  private func updateButton() {
-    let title = AppModel.instance.appState.nextStateButtonLabel
-    startButton.setTitle(title, for: .normal)
-  }
+  func testAppModel_whenStarted_isInInProgressState() {
+    // when started
+    sut.start()
 
+    // then it is in inProgress
+    let newState = sut.appState
+    XCTAssertEqual(newState, AppState.inProgress)
+  }
 }
