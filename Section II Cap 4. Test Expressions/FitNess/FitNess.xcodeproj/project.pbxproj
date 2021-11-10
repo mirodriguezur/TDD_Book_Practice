@@ -19,6 +19,8 @@
 		0A9EB50B21C072F00062B66E /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9EB50A21C072F00062B66E /* AppModel.swift */; };
 		0AA5E735219B9B4600B7A0D0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5E734219B9B4600B7A0D0 /* AppState.swift */; };
 		4C59F12A2735C93800D833F1 /* DataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C59F1292735C93800D833F1 /* DataModelTests.swift */; };
+		4CD70EB72739AE480059DBBA /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD70EB62739AE480059DBBA /* ViewControllers.swift */; };
+		4CD70EBE2739AF800059DBBA /* RootViewController+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD70EBD2739AF800059DBBA /* RootViewController+Tests.swift */; };
 		5C2901831F8F6DE700803663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 		0A9EB50A21C072F00062B66E /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		0AA5E734219B9B4600B7A0D0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4C59F1292735C93800D833F1 /* DataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataModelTests.swift; path = "../../../../Section II Cap 3. TDD App Setup/FitNess/FitNessTests/Data Model/DataModelTests.swift"; sourceTree = "<group>"; };
+		4CD70EB62739AE480059DBBA /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
+		4CD70EBD2739AF800059DBBA /* RootViewController+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController+Tests.swift"; sourceTree = "<group>"; };
 		5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* FitNess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitNess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		0A21C7D621C6BF8B00169D8B /* FitNessTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CD70EB52739AE0A0059DBBA /* Test Classes */,
+				4CD70EBC2739AF270059DBBA /* Test Extensions */,
 				4C59F1282735C90F00D833F1 /* Data Model */,
 				0A21C7D921C6BF8B00169D8B /* Info.plist */,
 				0A21C7E321C70C5800169D8B /* Cases */,
@@ -161,6 +167,22 @@
 				4C59F1292735C93800D833F1 /* DataModelTests.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		4CD70EB52739AE0A0059DBBA /* Test Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4CD70EB62739AE480059DBBA /* ViewControllers.swift */,
+			);
+			path = "Test Classes";
+			sourceTree = "<group>";
+		};
+		4CD70EBC2739AF270059DBBA /* Test Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4CD70EBD2739AF800059DBBA /* RootViewController+Tests.swift */,
+			);
+			path = "Test Extensions";
 			sourceTree = "<group>";
 		};
 		D2A5F1F71F4A9143005CD714 = {
@@ -301,8 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD70EBE2739AF800059DBBA /* RootViewController+Tests.swift in Sources */,
 				4C59F12A2735C93800D833F1 /* DataModelTests.swift in Sources */,
 				0A21C7E021C6CF1200169D8B /* AppModelTests.swift in Sources */,
+				4CD70EB72739AE480059DBBA /* ViewControllers.swift in Sources */,
 				0A21C7E221C70AE400169D8B /* StepCountControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
