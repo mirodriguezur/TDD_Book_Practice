@@ -43,6 +43,7 @@ class AppModelTests: XCTestCase {
   }
 
   override func tearDownWithError() throws {
+    sut.stateChangedCallback = nil
     sut = nil
     try super.tearDownWithError()
   }
@@ -55,7 +56,7 @@ class AppModelTests: XCTestCase {
   func givenInProgress() {
     givenGoalSet()
     //swiftlint:disable force_try
-    try! sut.start()
+    try! sut.start()      //        el estado queda in progress
   }
 
   func givenCompleteReady() {
@@ -181,4 +182,27 @@ class AppModelTests: XCTestCase {
   }
 
   // MARK: - State Changes
+  
+  func testAppModel_whenStateChanges_executesCallback() {
+    // given
+    givenInProgress()                             //El appState = .inprogress
+    var observedState = AppState.notStarted       //observedState = .notStarted
+
+    // 1
+    let expected = expectation(description: "callback happened")
+    sut.stateChangedCallback = { model in
+      observedState = model.appState    // este codigo se ejecuta despues del when, se setea el valor del appState cuando sut.pause()
+      // 2
+      expected.fulfill()
+    }
+
+    // when
+    sut.pause()                               //appState = .paused
+
+    // then
+    // 3
+    wait(for: [expected], timeout: 1)
+    XCTAssertEqual(observedState, .paused)
+  }
+
 }

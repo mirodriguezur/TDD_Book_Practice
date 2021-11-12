@@ -36,7 +36,12 @@ class AppModel {
   static let instance = AppModel()
   let dataModel = DataModel()
 
-  var appState: AppState = .notStarted
+  private(set) var appState: AppState = .notStarted {
+    didSet {
+      stateChangedCallback?(self)
+    }
+  }
+
 
   func start() throws {
     guard dataModel.goal != nil else {
@@ -70,4 +75,8 @@ class AppModel {
 
     appState = .completed
   }
+  
+  var stateChangedCallback: ((AppModel) -> ())?
+
+  
 }
